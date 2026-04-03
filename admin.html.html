@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twilight Biathlon — Site Editor</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --amber: #E8820C;
+    --black: #111;
+    --card: #1a1a1a;
+    --border: #2a2a2a;
+    --input-bg: #222;
+    --text: #e0e0e0;
+    --muted: #888;
+    --green: #22c55e;
+    --red: #ef4444;
+  }
+
+  body {
+    background: #0d0d0d;
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ---- HEADER ---- */
+  #header {
+    background: var(--black);
+    border-bottom: 2px solid var(--amber);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  #header h1 {
+    font-family: 'Bebas Neue', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--amber);
+    letter-spacing: 0.06em;
+    font-weight: 400;
+  }
+
+  #header-sub {
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---- LAYOUT ---- */
+  #main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* ---- INSTRUCTIONS BANNER ---- */
+  #instructions {
+    background: #161c14;
+    border: 1px solid #2a4a20;
+    border-left: 4px solid var(--green);
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 2rem;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.7;
+  }
+
+  #instructions strong { color: var(--green); }
+
+  /* ---- SECTION CARDS ---- */
+  .section-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--amber);
+    padding: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  /* ---- FORM FIELDS ---- */
+  .field-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 0.5rem 1.2rem;
+    align-items: start;
+    margin-bottom: 0.9rem;
+  }
+
+  @media (max-width: 580px) {
+    .field-row { grid-template-columns: 1fr; }
+  }
+
+  .field-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #999;
+    padding-top: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .field-hint {
+    font-size: 11px;
+    color: #555;
+    margin-top: 2px;
+  }
+
+  input[type="text"],
+  input[type="url"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    background: var(--input-bg);
+    border: 1px solid #3a3a3a;
+    color: var(--text);
+    font-size: 14px;
+    padding: 0.5rem 0.7rem;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.15s;
+    border-radius: 2px;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--amber);
+  }
+
+  select {
+    cursor: pointer;
+  }
+
+  /* ---- RESULTS TABLE ---- */
+  #results-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  #results-table th {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    padding: 0.5rem 0.6rem;
+    border-bottom: 1px solid #2a2a2a;
+  }
+
+  #results-table td {
+    padding: 0.4rem 0.6rem;
+    vertical-align: middle;
+    border-bottom: 1px solid #1e1e1e;
+  }
+
+  #results-table tr:last-child td { border-bottom: none; }
+
+  #results-table input[type="text"],
+  #results-table input[type="url"] {
+    padding: 0.35rem 0.5rem;
+    font-size: 13px;
+  }
+
+  .tba-row td { opacity: 0.5; }
+  .tba-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #555;
+    background: #222;
+    border: 1px solid #333;
+    padding: 2px 6px;
+    text-transform: uppercase;
+  }
+
+  .add-row-btn {
+    margin-top: 0.75rem;
+    background: none;
+    border: 1px solid #333;
+    color: #666;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.45rem 1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .add-row-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+  .del-btn {
+    background: none;
+    border: none;
+    color: #444;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+    transition: color 0.15s;
+    line-height: 1;
+  }
+
+  .del-btn:hover { color: var(--red); }
+
+  /* ---- ACTION BAR ---- */
+  #action-bar {
+    position: sticky;
+    bottom: 0;
+    background: #0d0d0d;
+    border-top: 1px solid #222;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--amber);
+    color: #111;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.7rem 2rem;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+
+  .btn-primary:hover { background: #f5940e; }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--amber);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    padding: 0.65rem 1.4rem;
+    border: 2px solid var(--amber);
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { background: var(--amber); color: #111; }
+
+  #save-status {
+    font-size: 13px;
+    color: #555;
+    flex: 1;
+  }
+
+  #save-status.success { color: var(--green); }
+  #save-status.error   { color: var(--red); }
+
+  /* ---- OUTPUT AREA ---- */
+  #output-section {
+    display: none;
+    margin-top: 2rem;
+  }
+
+  #output-section.visible { display: block; }
+
+  .output-header {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.6rem;
+  }
+
+  #output-box {
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-left: 4px solid var(--amber);
+    padding: 1.2rem;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    color: #8dc891;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-all;
+    max-height: 400px;
+    overflow-y: auto;
+    user-select: all;
+  }
+
+  .copy-btn {
+    margin-top: 0.75rem;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+  }
+
+  .copy-btn:hover { border-color: var(--amber); color: var(--amber); }
+
+  #copy-confirm {
+    display: inline-block;
+    font-size: 12px;
+    color: var(--green);
+    margin-left: 0.75rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  #copy-confirm.show { opacity: 1; }
+
+  .section-note {
+    font-size: 13px;
+    color: #555;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<div id="header">
+  <div>
+    <h1>TWILIGHT BIATHLON — SITE EDITOR</h1>
+  </div>
+  <span id="header-sub">admin.html</span>
+</div>
+
+<div id="main">
+
+  <div id="instructions">
+    <strong>How to use this editor:</strong><br>
+    1. Make your changes in the fields below.<br>
+    2. Click <strong style="color:var(--amber);">Generate Updated CONFIG</strong> at the bottom.<br>
+    3. Copy the generated code block.<br>
+    4. Open <strong>twilight-biathlon.html</strong> in a text editor (Notepad works fine).<br>
+    5. Find the section that starts with <code style="color:#aaa;">&lt;script id="site-config"&gt;</code> and ends with <code style="color:#aaa;">&lt;/script&gt;</code>.<br>
+    6. Replace that entire block with the copied code.<br>
+    7. Save the file and upload it to Netlify — done.
+  </div>
+
+  <!-- ---- CONTACT ---- -->
+  <div class="section-card">
+    <div class="section-title">Contact Email</div>
+    <div class="field-row">
+      <div>
+        <div class="field-label">Email Address</div>
+        <div class="field-hint">Appears in footers, Contact tab, and FAQ answers</div>
+      </div>
+      <input type="email" id="cfg-email" value="OkMultiGun@gmail.com">
+    </div>
+  </div>
+
+  <!-- ---- SPRING EVENT ---- -->
+  <div class="section-card">
+    <div class="section-title">Spring Event</div>
+
+    <div class="field-row">
+      <div><div class="field-label">Display Date</div><div class="field-hint">Shown as large heading on event card</div></div>
+      <input type="text" id="sp-displayDate" value="MAY 15–16, 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Friday Night Label</div></div>
+      <input type="text" id="sp-fridayLabel" value="Friday, May 15">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Saturday Night Label</div></div>
+      <input type="text" id="sp-saturdayLabel" value="Saturday, May 16">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Gates Open</div><div class="field-hint">Leave blank to hide this row</div></div>
+      <input type="text" id="sp-gatesOpen" value="">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Check-in Time</div></div>
+      <input type="text" id="sp-checkin" value="7:00–8:00 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Shooters Meeting</div></div>
+      <input type="text" id="sp-shootersMeeting" value="9:00 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">First Release</div></div>
+      <input type="text" id="sp-firstRelease" value="10:00 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Registration Opens</div></div>
+      <input type="text" id="sp-regOpens" value="October 5, 2025">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Registration Closes</div></div>
+      <input type="text" id="sp-regCloses" value="May 11, 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Entry Fee</div></div>
+      <input type="text" id="sp-entryFee" value="$100 per division · $50 second division (same competitor, max 2)">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">PractiScore Register URL</div></div>
+      <input type="url" id="sp-registerUrl" value="https://practiscore.com/twilight-biathlon-may-15-16-2026/register">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Register Button Label</div></div>
+      <input type="text" id="sp-registerLabel" value="Register — Spring 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Show Register Button?</div><div class="field-hint">Turn off to show "Coming Soon" badge instead</div></div>
+      <select id="sp-showRegButton">
+        <option value="true" selected>Yes — show Register button</option>
+        <option value="false">No — show "Registration Opening Soon"</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ---- FALL EVENT ---- -->
+  <div class="section-card">
+    <div class="section-title">Fall Event</div>
+
+    <div class="field-row">
+      <div><div class="field-label">Display Date</div></div>
+      <input type="text" id="fa-displayDate" value="OCTOBER 16–17, 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Friday Night Label</div></div>
+      <input type="text" id="fa-fridayLabel" value="Friday, Oct 16">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Saturday Night Label</div></div>
+      <input type="text" id="fa-saturdayLabel" value="Saturday, Oct 17">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Gates Open</div><div class="field-hint">Leave blank to hide this row</div></div>
+      <input type="text" id="fa-gatesOpen" value="4:00 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Check-in Time</div></div>
+      <input type="text" id="fa-checkin" value="6:00–7:00 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Shooters Meeting</div></div>
+      <input type="text" id="fa-shootersMeeting" value="7:30 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">First Release</div></div>
+      <input type="text" id="fa-firstRelease" value="8:30 PM each night">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Registration Opens</div></div>
+      <input type="text" id="fa-regOpens" value="April 6, 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Registration Closes</div></div>
+      <input type="text" id="fa-regCloses" value="October 14, 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Entry Fee</div></div>
+      <input type="text" id="fa-entryFee" value="$100 per division · $50 second division (same competitor, max 2)">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">PractiScore Register URL</div></div>
+      <input type="url" id="fa-registerUrl" value="https://practiscore.com/twilight-biathlon-october-16-17-2026/register">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Register Button Label</div></div>
+      <input type="text" id="fa-registerLabel" value="Register — Fall 2026">
+    </div>
+    <div class="field-row">
+      <div><div class="field-label">Show Register Button?</div><div class="field-hint">Turn off to show "Coming Soon" badge instead</div></div>
+      <select id="fa-showRegButton">
+        <option value="true" selected>Yes — show Register button</option>
+        <option value="false">No — show "Registration Opening Soon"</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- ---- RESULTS ---- -->
+  <div class="section-card">
+    <div class="section-title">Results List (Scores Tab)</div>
+    <p class="section-note" style="margin-bottom:1rem;">
+      Each row is one entry in the results list. Leave the <strong>PractiScore URL</strong> blank to show a dimmed "Coming Soon" placeholder row instead of a clickable link.
+    </p>
+
+    <table id="results-table">
+      <thead>
+        <tr>
+          <th style="width:38%">Label (displayed text)</th>
+          <th style="width:20%">Year Tag</th>
+          <th>PractiScore URL (leave blank = TBA)</th>
+          <th style="width:32px;"></th>
+        </tr>
+      </thead>
+      <tbody id="results-tbody"></tbody>
+    </table>
+
+    <button class="add-row-btn" onclick="addResultRow('','','')">+ Add Row</button>
+  </div>
+
+  <!-- ---- OUTPUT ---- -->
+  <div id="output-section">
+    <div class="output-header">Generated CONFIG Block — Copy and paste into twilight-biathlon.html</div>
+    <div id="output-box"></div>
+    <div style="margin-top:0.75rem;">
+      <button class="copy-btn" onclick="copyOutput()">Copy to Clipboard</button>
+      <span id="copy-confirm">Copied!</span>
+    </div>
+    <div class="section-note" style="margin-top:1rem;">
+      Open <strong>twilight-biathlon.html</strong> in Notepad. Find the block that begins with
+      <code style="color:#aaa; font-size:12px;">&lt;script id="site-config"&gt;</code>
+      and ends with the next <code style="color:#aaa; font-size:12px;">&lt;/script&gt;</code>.
+      Replace the entire block with what you copied above.
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ---- STICKY ACTION BAR ---- -->
+<div id="action-bar">
+  <button class="btn-primary" onclick="generateConfig()">Generate Updated CONFIG</button>
+  <span id="save-status"></span>
+</div>
+
+<script>
+// ============================================================
+// SEED DATA — matches current CONFIG in twilight-biathlon.html
+// ============================================================
+var RESULTS_SEED = [
+  { label: "Spring 2018 Results", year: "Spring 2018", url: "https://practiscore.com/results/new/fb69368e-b51a-420b-bbf8-bd1b022f2c12" },
+  { label: "Fall 2018 Results",   year: "Fall 2018",   url: "https://practiscore.com/results/new/e18c7ca7-c160-4c96-a61e-1d7a881d8143" },
+  { label: "Spring 2019 Results", year: "Spring 2019", url: "https://practiscore.com/results/new/80745" },
+  { label: "Fall 2020 Results",   year: "Fall 2020",   url: "https://practiscore.com/results/new/121447" },
+  { label: "Spring 2021 Results", year: "Spring 2021", url: "https://practiscore.com/results/new/136332" },
+  { label: "Fall 2021 Results",   year: "Fall 2021",   url: "https://practiscore.com/results/new/151041" },
+  { label: "Spring 2022 Results", year: "Spring 2022", url: "https://practiscore.com/results/new/168572" },
+  { label: "Fall 2022 Results",   year: "Fall 2022",   url: "https://practiscore.com/results/new/185189" },
+  { label: "Spring 2023 Results", year: "Spring 2023", url: "https://practiscore.com/results/new/204566" },
+  { label: "Fall 2023 Results",   year: "Fall 2023",   url: "https://practiscore.com/results/new/223764" },
+  { label: "Spring 2024 Results", year: "Spring 2024", url: "https://practiscore.com/results/html/d259d25b-53c2-429f-8054-7276ab1b89ad" },
+  { label: "Fall 2024 Results",   year: "Fall 2024",   url: "https://practiscore.com/results/html/6b59daf6-cd24-45ba-bb63-f642f0546428" },
+  { label: "Fall 2025 Results",   year: "Fall 2025",   url: "https://practiscore.com/results/html/8660ab53-4241-477b-9859-03e319bb486d" },
+  { label: "Spring 2026 Results", year: "Spring 2026", url: "" },
+  { label: "Fall 2026 Results",   year: "Fall 2026",   url: "" },
+  { label: "Spring 2027 Results", year: "Spring 2027", url: "" },
+  { label: "Fall 2027 Results",   year: "Fall 2027",   url: "" },
+  { label: "Spring 2028 Results", year: "Spring 2028", url: "" },
+  { label: "Fall 2028 Results",   year: "Fall 2028",   url: "" }
+];
+
+// Seed the results table on load
+RESULTS_SEED.forEach(function(r) { addResultRow(r.label, r.year, r.url); });
+
+function addResultRow(label, year, url) {
+  var tbody = document.getElementById('results-tbody');
+  var tr = document.createElement('tr');
+  var isTba = !url;
+  if (isTba) tr.className = 'tba-row';
+  tr.innerHTML =
+    '<td><input type="text" class="res-label" value="' + escAttr(label) + '" placeholder="e.g. Spring 2026 Results"></td>' +
+    '<td><input type="text" class="res-year"  value="' + escAttr(year)  + '" placeholder="e.g. Spring 2026"></td>' +
+    '<td><input type="url"  class="res-url"   value="' + escAttr(url)   + '" placeholder="https://practiscore.com/results/..."></td>' +
+    '<td><button class="del-btn" title="Remove row" onclick="this.closest(\'tr\').remove()">✕</button></td>';
+  tbody.appendChild(tr);
+
+  // Live-update TBA styling when URL field changes
+  tr.querySelector('.res-url').addEventListener('input', function() {
+    tr.className = this.value.trim() ? '' : 'tba-row';
+  });
+}
+
+function escAttr(s) {
+  return (s || '').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ---- GENERATE ----
+function generateConfig() {
+  try {
+    var email    = document.getElementById('cfg-email').value.trim();
+
+    function getEvent(prefix) {
+      return {
+        displayDate:     document.getElementById(prefix + 'displayDate').value,
+        fridayLabel:     document.getElementById(prefix + 'fridayLabel').value,
+        saturdayLabel:   document.getElementById(prefix + 'saturdayLabel').value,
+        gatesOpen:       document.getElementById(prefix + 'gatesOpen').value,
+        checkin:         document.getElementById(prefix + 'checkin').value,
+        shootersMeeting: document.getElementById(prefix + 'shootersMeeting').value,
+        firstRelease:    document.getElementById(prefix + 'firstRelease').value,
+        regOpens:        document.getElementById(prefix + 'regOpens').value,
+        regCloses:       document.getElementById(prefix + 'regCloses').value,
+        entryFee:        document.getElementById(prefix + 'entryFee').value,
+        registerUrl:     document.getElementById(prefix + 'registerUrl').value,
+        registerLabel:   document.getElementById(prefix + 'registerLabel').value,
+        showRegButton:   document.getElementById(prefix + 'showRegButton').value === 'true'
+      };
+    }
+
+    var spring = getEvent('sp-');
+    var fall   = getEvent('fa-');
+
+    var rows = document.querySelectorAll('#results-tbody tr');
+    var results = [];
+    rows.forEach(function(tr) {
+      var lbl = tr.querySelector('.res-label').value.trim();
+      var yr  = tr.querySelector('.res-year').value.trim();
+      var url = tr.querySelector('.res-url').value.trim();
+      if (lbl || yr) results.push({ label: lbl, year: yr, url: url });
+    });
+
+    function q(v) { return JSON.stringify(v); }
+    function eventBlock(e, indent) {
+      var i = indent;
+      var lines = [
+        i + 'displayDate:      ' + q(e.displayDate)     + ',',
+        i + 'fridayLabel:      ' + q(e.fridayLabel)     + ',',
+        i + 'saturdayLabel:    ' + q(e.saturdayLabel)   + ',',
+        i + 'checkin:          ' + q(e.checkin)         + ',',
+        i + 'shootersMeeting:  ' + q(e.shootersMeeting) + ',',
+        i + 'firstRelease:     ' + q(e.firstRelease)    + ',',
+        i + 'gatesOpen:        ' + q(e.gatesOpen)       + ',',
+        i + 'regOpens:         ' + q(e.regOpens)        + ',',
+        i + 'regCloses:        ' + q(e.regCloses)       + ',',
+        i + 'entryFee:         ' + q(e.entryFee)        + ',',
+        i + 'registerUrl:      ' + q(e.registerUrl)     + ',',
+        i + 'registerLabel:    ' + q(e.registerLabel)   + ',',
+        i + 'showRegButton:    ' + e.showRegButton
+      ];
+      return lines.join('\n');
+    }
+
+    var resLines = results.map(function(r) {
+      return '    { label: ' + q(r.label) + ', year: ' + q(r.year) + ', url: ' + q(r.url) + ' }';
+    }).join(',\n');
+
+    var output =
+'<script id="site-config">\n' +
+'var CONFIG = {\n\n' +
+'  /* ---- CONTACT ---- */\n' +
+'  email: ' + q(email) + ',\n\n' +
+'  /* ---- SPRING EVENT ---- */\n' +
+'  spring: {\n' + eventBlock(spring, '    ') + '\n  },\n\n' +
+'  /* ---- FALL EVENT ---- */\n' +
+'  fall: {\n' + eventBlock(fall, '    ') + '\n  },\n\n' +
+'  /* ---- RESULTS LIST ----\n' +
+'     Each entry: { label, year, url }\n' +
+'     Set url to "" (empty string) for a TBA/placeholder row (not clickable).\n' +
+'  */\n' +
+'  results: [\n' + resLines + '\n  ]\n\n' +
+'};\n' +
+'<\/script>';
+
+    document.getElementById('output-box').textContent = output;
+    document.getElementById('output-section').classList.add('visible');
+    document.getElementById('output-section').scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    var status = document.getElementById('save-status');
+    status.textContent = 'CONFIG generated — scroll down to copy it.';
+    status.className = 'success';
+
+  } catch(e) {
+    var status = document.getElementById('save-status');
+    status.textContent = 'Error: ' + e.message;
+    status.className = 'error';
+  }
+}
+
+function copyOutput() {
+  var text = document.getElementById('output-box').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var el = document.getElementById('copy-confirm');
+    el.classList.add('show');
+    setTimeout(function() { el.classList.remove('show'); }, 2000);
+  }).catch(function() {
+    // Fallback: select the text
+    var box = document.getElementById('output-box');
+    var range = document.createRange();
+    range.selectNodeContents(box);
+    window.getSelection().removeAllRanges();
+    window.getSelection().addRange(range);
+  });
+}
+</script>
+
+</body>
+</html>
