@@ -103,36 +103,6 @@
   ]
 }
 </script>
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "SportsEvent",
-      "name": "Twilight Biathlon",
-      "description": "The original nighttime run n gun. 5K course, four shooting stages, complete darkness. 2Gun, PCC, and Night Vision divisions. Spring & Fall in Pawnee, Oklahoma.",
-      "location": {
-        "@type": "Place",
-        "name": "The Burial Mound Shooting Center",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "42251 South 34500 Road",
-          "addressLocality": "Pawnee",
-          "addressRegion": "OK",
-          "postalCode": "74058",
-          "addressCountry": "US"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 36.402360,
-          "longitude": -96.854434
-        }
-      },
-      "url": "https://twilightbiathlon.com",
-      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode"
-    }
-  ]
-}
-</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1208,7 +1178,7 @@ var CONFIG = {
         </div>
       </div>
 
-      <!-- EMAIL LIST SIGNUP — Moved from Events tab -->
+      <!-- EMAIL LIST SIGNUP -->
       <div class="email-signup-section" id="email-signup">
         <h2>Get Updates and Announcements</h2>
 
@@ -1333,19 +1303,10 @@ var CONFIG = {
   <div class="container">
     <h2 class="pane-heading">Upcoming Events</h2>
 
-    <!-- PRACTISCORE AUTO-LOAD: Attempt to fetch upcoming matches from
-         https://practiscore.com/clubs/the-burial-mound-shooting-center
-         and populate event cards dynamically. If the fetch fails or is
-         blocked by CORS, fall back to the static event cards below.
-         To update static cards manually, edit the .event-card blocks. -->
-
     <div id="ps-events-dynamic"></div>
 
     <div id="ps-events-static">
-      <!-- Spring 2026 — rendered from CONFIG.spring -->
       <div class="event-card" id="event-card-spring"></div>
-
-      <!-- Fall 2026 — rendered from CONFIG.fall -->
       <div class="event-card" id="event-card-fall"></div>
     </div>
 
@@ -1923,13 +1884,7 @@ var CONFIG = {
       The Twilight Biathlon has been held every spring and fall since May 2018 — making it the longest-running nighttime run-and-gun biathlon in the United States. All events at The Burial Mound Shooting Center, Pawnee, Oklahoma.
     </p>
 
-    <!-- PRACTISCORE AUTO-LOAD: Attempt to fetch match results from
-         https://practiscore.com/clubs/the-burial-mound-shooting-center
-         and prepend any new Twilight Biathlon results above the static list.
-         If fetch fails, static list displays as-is. -->
-
     <div id="ps-results-dynamic"></div>
-    <!-- Results list rendered from CONFIG.results -->
     <ul class="results-list" id="ps-results-static" aria-label="Event results"></ul>
   </div>
 
