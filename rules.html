@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Rules — Twilight Biathlon</title>
+  <meta name="description" content="Complete official rules for all Twilight Biathlon divisions. Safety, scoring, penalties, lighting, NV regulations, and refund policy.">
+  <meta name="google-site-verification" content="geUuzHMeTOOOa8xEotXdUElK6i40rrp--J0Uh9sMxRY">
+  <meta property="og:title" content="Official Rules — Twilight Biathlon">
+  <meta property="og:description" content="Complete official rules for all Twilight Biathlon divisions. Safety, scoring, penalties, lighting, NV regulations, and refund policy.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <link rel="canonical" href="https://twilightbiathlon.com/rules.html">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Rules page specific styles — adapted from reference */
+    
+
+  /* ── RESET & BASE ─────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:        #111111;
+    --surface:   #191919;
+    --surface2:  #202020;
+    --amber:     #8A9B68;
+    --amber-dim: #5E6B4A;
+    --text:      #E8E4DC;
+    --text-muted:#9A9690;
+    --red:       #8B0000;
+    --border:    #2C2C2C;
+    --rule-gutter: 280px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── TOP BANNER ───────────────────────────────────────────────── */
+  .banner {
+    background: var(--surface);
+    border-bottom: 2px solid var(--amber);
+    padding: 28px 40px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .banner-event {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+
+  .banner-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .banner-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 6px;
+  }
+
+  /* ── LAYOUT ───────────────────────────────────────────────────── */
+  .layout {
+    display: grid;
+    grid-template-columns: var(--rule-gutter) 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+    gap: 0;
+  }
+
+  /* ── SIDEBAR ──────────────────────────────────────────────────── */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: 32px 0 32px 32px;
+    border-right: 1px solid var(--border);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  .sidebar::-webkit-scrollbar { width: 4px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  .toc-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .toc-list a {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    padding: 5px 12px 5px 8px;
+    border-left: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s, background 0.15s;
+    border-radius: 0 4px 4px 0;
+    line-height: 1.4;
+  }
+
+  .toc-list a:hover {
+    color: var(--amber);
+    border-left-color: var(--amber);
+    background: rgba(232, 130, 12, 0.06);
+  }
+
+  .toc-list .toc-num {
+    color: var(--amber-dim);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    margin-right: 6px;
+  }
+
+  /* ── MAIN CONTENT ─────────────────────────────────────────────── */
+  .content {
+    padding: 48px 48px 80px 56px;
+    max-width: 820px;
+  }
+
+  /* ── SECTION BLOCKS ───────────────────────────────────────────── */
+  .rule-section {
+    margin-bottom: 56px;
+    scroll-margin-top: 32px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    color: var(--amber);
+    white-space: nowrap;
+    background: rgba(232, 130, 12, 0.1);
+    padding: 3px 8px;
+    border-radius: 3px;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-transform: uppercase;
+  }
+
+  /* ── SUBSECTIONS ──────────────────────────────────────────────── */
+  .sub {
+    margin-bottom: 24px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+  }
+
+  .sub-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .sub-num {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    margin-right: 8px;
+  }
+
+  /* ── RULE ITEMS ───────────────────────────────────────────────── */
+  .rule-body {
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 8px;
+  }
+
+  .rule-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .rule-list li {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 8px;
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+  }
+
+  .rule-list li .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--amber-dim);
+    padding-top: 3px;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* sub-list (indented) */
+  .rule-sublist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 8px;
+    margin-left: 60px;
+    padding-left: 16px;
+    border-left: 1px solid var(--border);
+  }
+
+  .rule-sublist li {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .rule-sublist li .num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--amber-dim);
+    padding-top: 3px;
+    white-space: nowrap;
+    text-align: right;
+  }
+
+  /* appeal bullets (no num) */
+  .plain-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .plain-list li {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--text);
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .plain-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 6px;
+    height: 6px;
+    border: 1.5px solid var(--amber);
+    border-radius: 50%;
+  }
+
+  /* ── CALLOUT BOXES ────────────────────────────────────────────── */
+  .callout {
+    background: var(--surface2);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 6px 6px 0;
+    padding: 14px 18px;
+    margin: 12px 0;
+    font-size: 14px;
+    color: var(--text);
+    line-height: 1.65;
+  }
+
+  .callout.warn {
+    border-left-color: var(--red);
+    background: rgba(139, 0, 0, 0.08);
+  }
+
+  .callout strong {
+    font-weight: 600;
+    color: var(--amber);
+  }
+
+  .callout.warn strong {
+    color: #e05050;
+  }
+
+  /* ── PENALTY TABLE ────────────────────────────────────────────── */
+  .penalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+    font-size: 14px;
+  }
+
+  .penalty-table th {
+    background: var(--amber);
+    color: #111;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  .penalty-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    line-height: 1.55;
+    color: var(--text);
+  }
+
+  .penalty-table tr:nth-child(even) td {
+    background: var(--surface);
+  }
+
+  .penalty-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .penalty-table .penalty-time {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--amber);
+    white-space: nowrap;
+  }
+
+  .penalty-table .penalty-dq {
+    color: #e05050;
+  }
+
+  /* ── BADGES ───────────────────────────────────────────────────── */
+  .badge {
+    display: inline-block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 8px;
+    text-transform: uppercase;
+  }
+
+  .badge-new { background: rgba(232,130,12,0.15); color: var(--amber); }
+  .badge-rev { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+  .badge-nv  { background: rgba(139,0,0,0.2); color: #e05050; }
+
+  /* ── DIVIDER ──────────────────────────────────────────────────── */
+  .rule-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+  }
+
+  /* ── HIGHLIGHT (COLD RANGE, etc.) ─────────────────────────────── */
+  .hl { color: var(--amber); font-weight: 600; }
+  .hl-warn { color: #e05050; font-weight: 600; }
+
+  /* ── PRINT BUTTON ─────────────────────────────────────────────── */
+  .print-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 14px;
+    padding: 9px 18px;
+    background: transparent;
+    border: 1.5px solid var(--amber);
+    border-radius: 4px;
+    color: var(--amber);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+  }
+  .print-btn:hover { background: var(--amber); color: #fff; }
+  .print-btn svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* ── PRINT ────────────────────────────────────────────────────── */
+  @media print {
+    :root {
+      --bg: #fff; --surface: #f8f8f8; --surface2: #f0f0f0;
+      --amber: #6E7D58; --amber-dim: #4E5B3A;
+      --text: #111; --text-muted: #555; --border: #ddd;
+    }
+    .sidebar { display: none; }
+    .print-btn { display: none; }
+    .layout { grid-template-columns: 1fr; }
+    .content { padding: 24px; max-width: 100%; }
+    .banner { padding: 16px 24px; }
+    .rule-section { page-break-inside: avoid; }
+    .sub { page-break-inside: avoid; }
+  }
+
+  /* ── RESPONSIVE ───────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    :root { --rule-gutter: 0px; }
+    .layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content { padding: 32px 24px 60px; max-width: 100%; }
+    .banner { padding: 20px 24px; }
+    .rule-list li { grid-template-columns: 44px 1fr; }
+  }
+
+
+    
+    /* Override reference fonts to match site where needed */
+    .banner { background: var(--color-surface, #191919); }
+    .nav + .banner { margin-top: 0; }
+  </style>
+</head>
+<body>
+  <a href="#main" class="sr-only">Skip to content</a>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="./index.html" class="nav__logo">TWILIGHT BIATHLON</a>
+    <ul class="nav__links">
+      <li><a href="./index.html" class="nav__link">Home</a></li>
+      <li><a href="./events.html" class="nav__link">Events</a></li>
+      <li><a href="./what-is-run-and-gun.html" class="nav__link">What Is RnG?</a></li>
+      <li><a href="./first-timer.html" class="nav__link">First-Timer</a></li>
+      <li><a href="./night-vision-division.html" class="nav__link">NV Division</a></li>
+      <li><a href="./rules.html" class="nav__link nav__link--active">Rules</a></li>
+      <li><a href="./results.html" class="nav__link">Results</a></li>
+      <li><a href="./media.html" class="nav__link">Photos</a></li>
+      <li><a href="./faq.html" class="nav__link">FAQ</a></li>
+      <li><a href="./location.html" class="nav__link">Location</a></li>
+      <li><a href="./contact.html" class="nav__link">Contact</a></li>
+      <li><a href="./register.html" class="nav__link nav__link--cta">Register</a></li>
+    </ul>
+    <button id="nav-hamburger" class="nav__hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="mobile-menu" role="menu">
+  <a href="./index.html" class="mobile-menu__link">Home</a>
+  <a href="./events.html" class="mobile-menu__link">Events</a>
+  <a href="./what-is-run-and-gun.html" class="mobile-menu__link">What Is RnG?</a>
+  <a href="./first-timer.html" class="mobile-menu__link">First-Timer</a>
+  <a href="./night-vision-division.html" class="mobile-menu__link">NV Division</a>
+  <a href="./rules.html" class="mobile-menu__link mobile-menu__link--active">Rules</a>
+  <a href="./results.html" class="mobile-menu__link">Results</a>
+  <a href="./media.html" class="mobile-menu__link">Photos</a>
+  <a href="./faq.html" class="mobile-menu__link">FAQ</a>
+  <a href="./location.html" class="mobile-menu__link">Location</a>
+  <a href="./contact.html" class="mobile-menu__link">Contact</a>
+  <a href="./register.html" class="mobile-menu__link mobile-menu__link--cta">Register</a>
+  </div>
+
+  <main id="main">
+    <!-- BANNER -->
+<div class="banner">
+  <div class="banner-event">Twilight Biathlon &mdash; Official Rules</div>
+  <h1 class="banner-title">OFFICIAL RULES</h1>
+  <div class="banner-sub">Revised April 2026 &nbsp;&bull;&nbsp; twilightbiathlon.com &nbsp;&bull;&nbsp; okmultigun@gmail.com</div>
+  <button class="print-btn" onclick="window.print()">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+    </svg>
+    Print / Save as PDF
+  </button>
+</div>
+
+<div class="layout">
+
+  <!-- SIDEBAR TOC -->
+  <nav class="sidebar" aria-label="Rules navigation">
+    <div class="toc-label">Sections</div>
+    <ul class="toc-list">
+      <li><a href="#s1"><span class="toc-num">1</span>Safety Rules</a></li>
+      <li><a href="#s2"><span class="toc-num">2</span>Range Commands</a></li>
+      <li><a href="#s3"><span class="toc-num">3</span>Firearms</a></li>
+      <li><a href="#s4"><span class="toc-num">4</span>Holsters &amp; Equipment</a></li>
+      <li><a href="#s5"><span class="toc-num">5</span>Ammunition</a></li>
+      <li><a href="#s6"><span class="toc-num">6</span>Targets</a></li>
+      <li><a href="#s7"><span class="toc-num">7</span>Scoring</a></li>
+      <li><a href="#s8"><span class="toc-num">8</span>Stage Penalties</a></li>
+      <li><a href="#s9"><span class="toc-num">9</span>Match Disqualifications</a></li>
+      <li><a href="#s10"><span class="toc-num">10</span>Stage Disqualifications</a></li>
+      <li><a href="#s11"><span class="toc-num">11</span>Appeals</a></li>
+      <li><a href="#s12"><span class="toc-num">12</span>Lighting</a></li>
+      <li><a href="#s13"><span class="toc-num">13</span>Medical &amp; Emergency</a></li>
+      <li><a href="#s14"><span class="toc-num">14</span>Refund Policy</a></li>
+    </ul>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main class="content">
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 1 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s1">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2 class="section-title">Safety Rules</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.1</span>Competitor Responsibility</div>
+        <p class="rule-body">It is the competitor&rsquo;s responsibility to read and understand the rules and stage briefings and to agree to be bound by them while participating in the event.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.2</span>Basic Firearms Safety Rules</div>
+        <p class="rule-body">The following fundamental safety rules apply at all times:</p>
+        <ul class="rule-list">
+          <li><span class="num">1.2.1</span><span>Treat all guns as if they are always loaded.</span></li>
+          <li><span class="num">1.2.2</span><span>Never let the muzzle cover anything you are not willing to destroy.</span></li>
+          <li><span class="num">1.2.3</span><span>Keep your finger off the trigger until your sights are on target and you have made a positive identification.</span></li>
+          <li><span class="num">1.2.4</span><span>Be sure of your target, what is in front of it, and what is behind it.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.3</span>Cold Range</div>
+        <div class="callout">
+          <strong>COLD RANGE:</strong> All events operate on a cold range. Firearms shall be unloaded at all times except when directly under the supervision of a Range Officer (RO) during an active Course of Fire (COF).
+        </div>
+        <ul class="rule-list">
+          <li><span class="num">1.3.1</span><span>Rifles and PCCs shall be transported between stages with detachable magazines removed and chamber empty. Slings are strongly recommended for hands-free carrying during the run.</span></li>
+          <li><span class="num">1.3.2</span><span>Pistols shall remain holstered at all times between stages. Chamber shall be empty; a magazine may be inserted.</span></li>
+          <li><span class="num">1.3.3</span><span>Competitors shall not handle, manipulate, or load any firearm outside of the active shooting stage under supervision of an RO. Any such action observed between stages is grounds for Match DQ under Section 9.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.4</span>Eye and Ear Protection</div>
+        <p class="rule-body">Eye and ear protection must be worn at all times while at a shooting stage. Ear protection is mandatory from the &ldquo;Make Ready&rdquo; command through &ldquo;Range is Clear.&rdquo; Electronic hearing protection is strongly recommended for ROs and competitors to maintain situational awareness at night.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.5</span>Minimum Target Illumination Standard</div>
+        <ul class="rule-list">
+          <li><span class="num">1.5.1</span><span>A competitor shall not engage any target unless that target has been positively identified using available lighting or night vision before the trigger is pressed. Firing at sound, movement, or assumed target location is prohibited and constitutes grounds for immediate Match DQ under Section 9.</span></li>
+          <li><span class="num">1.5.2</span><span>ROs shall visually confirm that the shooting lane is clear and downrange is safe before issuing the &ldquo;Make Ready&rdquo; command at each stage.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">1.6</span>Abandoning Firearms</div>
+        <ul class="rule-list">
+          <li><span class="num">1.6.1</span><span>During a COF, a competitor may be required to abandon a firearm to transition to another. A competitor shall not engage targets with more than one gun in their hands at any time.</span></li>
+          <li><span class="num">1.6.2</span><span>Designated firearm abandonment locations will be identified during the stage brief. These locations shall be clearly marked with high-visibility markers visible under white light and IR illumination.</span></li>
+          <li><span class="num">1.6.3</span><span>Firearms shall be abandoned in one of the following conditions only: <span class="hl">MANUAL SAFETY ENGAGED</span>, or <span class="hl">EMPTY</span> &mdash; empty chamber with no live rounds in the firearm or attached magazine.</span></li>
+          <li><span class="num">1.6.4</span><span>Abandoned firearms shall be placed muzzle-forward into the designated receptacle or laid flat in the designated zone, pointed downrange. An abandoned firearm pointing uprange or sideways is a safety violation and the RO will call &ldquo;STOP.&rdquo;</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 2 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s2">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2 class="section-title">Range Commands and Procedures</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.1</span>Make Ready</div>
+        <p class="rule-body">The RO will issue the &ldquo;Make Ready&rdquo; command and supervise the competitor through firearm preparation.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.2</span>Are You Ready / Standby</div>
+        <p class="rule-body">After &ldquo;Make Ready,&rdquo; the RO will accompany the competitor to the start position and issue &ldquo;Are You Ready&rdquo; followed by &ldquo;Standby&rdquo; and timer activation. Silence from the competitor indicates readiness. If not ready, the competitor shall state &ldquo;No&rdquo; or &ldquo;Not Ready.&rdquo;</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.3</span>STOP</div>
+        <p class="rule-body">Any RO may issue &ldquo;STOP&rdquo; at any time. The competitor shall immediately cease firing, stop moving, and await further instruction.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.4</span>Unload and Show Clear</div>
+        <p class="rule-body">Upon completion of the stage, the competitor shall lower the firearm, present it muzzle downrange with magazine removed and chamber empty for RO inspection. The RO will supervise safe unloading of all firearms used on the stage.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.5</span>Range is Clear</div>
+        <p class="rule-body">Issued only after all firearms are confirmed clear. Officials and competitors may move downrange only after this declaration.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.6</span>Stage Brief Supersedes Posted Information</div>
+        <p class="rule-body">The stage brief delivered by the RO supersedes any previously posted stage information.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.7</span>Competitor Self-Sufficiency</div>
+        <p class="rule-body">Competitors must carry all required equipment for the full course at the start of their run. No resupply at vehicles is permitted.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.8</span>Stage Wait Time and Stopwatch</div>
+        <p class="rule-body">When a competitor arrives at a stage and another competitor is actively running the COF, the arriving competitor shall:</p>
+        <ul class="rule-list">
+          <li><span class="num">2.8.1</span><span>Proceed to the Stage Waiting Area (SWA), at least 5 yards behind the active shooting line.</span></li>
+          <li><span class="num">2.8.2</span><span>Start their wait timer on their personal stopwatch immediately upon entering the SWA.</span></li>
+          <li><span class="num">2.8.3</span><span>Turn off all active lights except chemical lights (chem-lights) upon entering the SWA (see Section 12).</span></li>
+          <li><span class="num">2.8.4</span><span>Remain in the SWA with all firearms unloaded and holstered/slung until invited to the stage by the RO.</span></li>
+          <li><span class="num">2.8.5</span><span>The RO will record competitor wait time upon exit of the SWA. Wait time will be deducted from run time. RO log is authoritative in the event of dispute.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">2.9</span>Equipment Carry</div>
+        <p class="rule-body">The competitor will carry all personal equipment throughout each stage unless otherwise stated in the stage brief.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 3 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s3">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2 class="section-title">Firearms</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">3.1</span>Serviceability</div>
+        <p class="rule-body">All firearms must be serviceable and safe. ROs may inspect any firearm at any time. Firearms declared unsafe shall be withdrawn until repaired to the satisfaction of the RO, Range Master (RM), or Match Director (MD).</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">3.2</span>Malfunction Repair</div>
+        <p class="rule-body">A competitor may attempt to repair a malfunctioning firearm under RO supervision, without outside assistance, on run time. Wait time does not apply.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">3.3</span>Fire Mode</div>
+        <p class="rule-body">Firearms capable of select-fire or full-auto may only be fired in semi-automatic mode.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">3.4</span>Slings</div>
+        <p class="rule-body">A sling or retention device is required on all rifles and PCCs. The firearm must remain attached to the competitor&rsquo;s body during transitions and movement. Unslung rifles carried in-hand between stages are prohibited.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 4 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s4">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2 class="section-title">Holsters and Equipment</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">4.1</span>Handgun Holsters</div>
+        <ul class="rule-list">
+          <li><span class="num">4.1.1</span><span>Holsters must safely retain the handgun during vigorous movement including running on uneven terrain.</span></li>
+          <li><span class="num">4.1.2</span><span>Holster material must be rigid and completely cover the trigger on all semi-automatic pistols and the cylinder on revolvers.</span></li>
+          <li><span class="num">4.1.3</span><span>Shoulder holsters, belly bands, magazine pouch holsters, cross-draw chest holsters, and pocket holsters are prohibited.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 5 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s5">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2 class="section-title">Ammunition</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">5.1</span>Prohibited Ammunition</div>
+        <div class="callout warn">
+          <strong>Prohibited:</strong> Tracer, incendiary, armor-piercing, and steel/tungsten core ammunition. Violations may result in penalties up to Match DQ and reimbursement for target and/or property damage. Steel-cased ammunition with non-steel projectiles is permitted.
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">5.2</span>Pistol / PCC Caliber</div>
+        <p class="rule-body">Pistol and PCC ammunition shall be 9x19mm or larger pistol cartridge. FN 5.7 is not permitted.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">5.3</span>Rifle Caliber</div>
+        <p class="rule-body">Rifle ammunition shall be 5.45x39mm or larger. The MD has discretion on uncommon calibers.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">5.4</span>Projectile Type</div>
+        <p class="rule-body">All pistol and rifle cartridges shall fire a single projectile only. No shot shells or multi-projectile loads.</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 6 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s6">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2 class="section-title">Targets</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">6.1</span>Stage Brief Specifies Targets</div>
+        <p class="rule-body">The stage brief will specify target type, count, required firearm for each target, and required hit count.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">6.2</span>Competitor Responsibility</div>
+        <p class="rule-body">Competitors must listen to or read the stage brief and ask questions before &ldquo;Make Ready&rdquo; is issued. Engaging a target with the wrong firearm is subject to procedural penalties or Stage DQ.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">6.3</span>Night Target Standards</div>
+        <ul class="rule-list">
+          <li><span class="num">6.3.1</span><span>All targets will be high-visibility contrast: white targets with dark backstops, or black targets with white backers. Targets will be visually distinguishable from backstops under white light and IR illumination.</span></li>
+          <li><span class="num">6.3.2</span><span>Target faces will not be illuminated by stage lighting. Competitors are responsible for illuminating targets using personal lighting systems.</span></li>
+          <li><span class="num">6.3.3</span><span>Target distances: Rifle/PCC targets: 5&ndash;150 yards. Pistol targets: 5&ndash;50 yards.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 7 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s7">
+      <div class="section-header">
+        <span class="section-num">Section 7</span>
+        <h2 class="section-title">Scoring</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">7.1</span>Appeals</div>
+        <p class="rule-body">Scoring disputes may be appealed to the stage RO. If unresolved, the MD or RM will review after the competitor&rsquo;s run but before results are posted. Run time continues during appeals at stages.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">7.2</span>Shoot / Run Weighting</div>
+        <p class="rule-body">Shoot and run time weighting is <span class="hl">50/50</span>.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">7.3</span>Target Neutralization</div>
+        <p class="rule-body">Targets must be neutralized to avoid time penalties.</p>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">7.4</span>Neutralization Standards</div>
+        <ul class="rule-list">
+          <li><span class="num">7.4.1</span><span>Paper/cardboard: Required number of hits within the scored zone/perforations.</span></li>
+          <li><span class="num">7.4.2</span><span>Steel knockdown (KD) plates: Must fall to score.</span></li>
+          <li><span class="num">7.4.3</span><span>Static plates: Must be struck the required number of times per engagement.</span></li>
+          <li><span class="num">7.4.4</span><span>ROs shall call &ldquo;HIT&rdquo; audibly for all non-visually-obvious target hits (static steel). At night, ROs shall also use a secondary visual signal (tap on the shoulder or back) when audible calls may be masked by hearing protection. <em>Competitors with electronic ear pro may still miss calls in ambient noise.</em></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 8 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s8">
+      <div class="section-header">
+        <span class="section-num">Section 8</span>
+        <h2 class="section-title">Stage Penalties</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">8.1</span>Time Penalties <span class="badge badge-rev">Revised</span></div>
+        <p class="rule-body">All stage penalties are assessed as fixed time additions to the competitor&rsquo;s stage time.</p>
+        <ul class="rule-list">
+          <li><span class="num">8.1.1</span><span>Failure to Neutralize (FTN): one hit when multiple hits are required.</span></li>
+          <li><span class="num">8.1.2</span><span>No-Shoot: a hit on a designated friendly or no-shoot target.</span></li>
+          <li><span class="num">8.1.3</span><span>Procedural violation: failure to follow stage procedures, shooting from incorrect position, shooting under walls, or failing to engage targets in required order.</span></li>
+        </ul>
+      </div>
+
+      <table class="penalty-table">
+        <thead>
+          <tr>
+            <th>Penalty</th>
+            <th>Time Added</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Failure to Neutralize (FTN)</td>
+            <td class="penalty-time">20&ndash;60 sec (stage-dependent)</td>
+          </tr>
+          <tr>
+            <td>No-Shoot hit</td>
+            <td class="penalty-time">20&ndash;60 sec (stage-dependent)</td>
+          </tr>
+          <tr>
+            <td>Procedural violation</td>
+            <td class="penalty-time">20&ndash;60 sec (stage-dependent)</td>
+          </tr>
+          <tr>
+            <td>Lighting violation in Stage Waiting Area</td>
+            <td class="penalty-time">30 sec per occurrence</td>
+          </tr>
+          <tr>
+            <td>Stage DQ (negligent discharge, muzzle break, etc.)</td>
+            <td class="penalty-dq">No score for stage</td>
+          </tr>
+          <tr>
+            <td>Match DQ (safety violations, cheating, etc.)</td>
+            <td class="penalty-dq">Full disqualification from event</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 9 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s9">
+      <div class="section-header">
+        <span class="section-num">Section 9</span>
+        <h2 class="section-title">Match Disqualifications</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">9.1</span>Non-Arbitrable Safety Violations</div>
+        <div class="callout warn">
+          <strong>Safety violations are not subject to arbitration.</strong>
+        </div>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">9.2</span>Match DQ Causes</div>
+        <p class="rule-body">A Match Disqualification results in immediate removal from the event.</p>
+        <ul class="rule-list">
+          <li><span class="num">9.2.1</span><span>Cheating</span></li>
+          <li><span class="num">9.2.2</span><span>Intentionally cutting the course</span></li>
+          <li><span class="num">9.2.3</span><span>Altering course, COF, or scorecards</span></li>
+          <li><span class="num">9.2.4</span><span>Unsportsmanlike conduct</span></li>
+          <li><span class="num">9.2.5</span><span>Intentional or unintentional discharge aimed over a berm or significantly off-target in an unsafe direction</span></li>
+          <li><span class="num">9.2.6</span><span>Any competitor found with a round chambered in any firearm while not under direct RO supervision</span></li>
+          <li><span class="num">9.2.7</span><span>A competitor impaired by drugs or alcohol and deemed unsafe by an RO or MD</span></li>
+          <li><span class="num">9.2.8</span><span>Firing at a target without positive visual identification. Discharging at sound, movement, or assumed position in the dark is an immediate Match DQ.</span></li>
+          <li><span class="num">9.2.9</span><span>Deliberate use of lighting to blind, interfere with, or damage the night-vision equipment of another competitor. This includes white light activation in direction of a NV competitor on-course. (See Section 12 for NV lighting protocol.)</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 10 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s10">
+      <div class="section-header">
+        <span class="section-num">Section 10</span>
+        <h2 class="section-title">Stage Disqualifications</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">10.1</span>Stage DQ Causes</div>
+        <p class="rule-body">A Stage Disqualification (SDQ) results in no score for the stage.</p>
+        <ul class="rule-list">
+          <li>
+            <span class="num">10.1.1</span>
+            <span>
+              Negligent Discharge not in the direction of a target. Rule 9.2.5 still applies. Includes:
+              <ul class="rule-sublist">
+                <li><span class="num">10.1.1.1</span><span>A shot during loading, reloading, or unloading after &ldquo;Make Ready&rdquo; and before &ldquo;Range is Clear.&rdquo;</span></li>
+                <li><span class="num">10.1.1.2</span><span>A shot during malfunction remediation, firearm transfer between hands, or movement between positions.</span></li>
+              </ul>
+            </span>
+          </li>
+          <li><span class="num">10.1.2</span><span>Dropping or losing control of a loaded firearm at any time after &ldquo;Make Ready&rdquo; and before &ldquo;Range is Clear.&rdquo;</span></li>
+          <li><span class="num">10.1.3</span><span>Breaking the 180-degree safety plane or designated safe direction at any time.</span></li>
+          <li><span class="num">10.1.4</span><span>Muzzle sweeping any part of the competitor&rsquo;s own body during a COF.</span></li>
+          <li><span class="num">10.1.5</span><span>Engaging pistol-designated targets with a rifle caliber.</span></li>
+          <li><span class="num">10.1.6</span><span>Firing after the &ldquo;STOP&rdquo; command is issued, after a stage is declared complete, or before the timer starts.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 11 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s11">
+      <div class="section-header">
+        <span class="section-num">Section 11</span>
+        <h2 class="section-title">Appeals</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">11.1</span>Appeals Process</div>
+        <ul class="plain-list">
+          <li>Decisions are initially made by the stage RO.</li>
+          <li>If disputed, the RM or MD makes the final ruling. Run time continues during appeals at the stage.</li>
+          <li>The RO has final authority on all HIT/MISS calls.</li>
+          <li>Safety violations are not subject to arbitration.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 12 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s12">
+      <div class="section-header">
+        <span class="section-num">Section 12</span>
+        <h2 class="section-title">Lighting</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">12.1</span>Permitted Lighting &mdash; Standard Divisions (2Gun &amp; PCC)</div>
+        <ul class="rule-list">
+          <li><span class="num">12.1.1</span><span>Weapon-mounted lights, illuminators, and non-IR lasers are permitted and recommended.</span></li>
+          <li><span class="num">12.1.2</span><span>Competitors may use any personal lighting (headlamps, handheld flashlights) at shooting stages and during course navigation.</span></li>
+          <li><span class="num">12.1.3</span><span>Weapon-mounted lights shall not be used as the primary navigation tool between stages with the muzzle pointed at the course/trail. The firearm must be slung or holstered during navigation. A separate headlamp or handheld light is required for course navigation.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">12.2</span>Stage Waiting Area Lighting Discipline &mdash; All Divisions</div>
+        <ul class="rule-list">
+          <li><span class="num">12.2.1</span><span>When a competitor arrives at a stage and another competitor is actively running the COF, the arriving competitor shall turn off all personal lights except chemical lights upon entering the Stage Waiting Area (SWA).</span></li>
+          <li><span class="num">12.2.2</span><span>Stage lighting, RO lights, and the active shooter&rsquo;s lights are the only permitted light sources during an active COF.</span></li>
+          <li><span class="num">12.2.3</span><span>Failure to comply with 12.2.1 will result in a 30-second stage time penalty assessed to the non-compliant competitor for each occurrence.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">12.3</span>NV Division Lighting Rules <span class="badge badge-nv">NV Only</span></div>
+        <div class="callout warn">
+          <strong>White light is prohibited</strong> for NV competitors during NV event nights, except for admin, safety reason, medical emergencies, or when directed by an RO.
+        </div>
+        <ul class="rule-list">
+          <li><span class="num">12.3.1</span><span>NV competitors may use night-vision devices (NVDs), IR weapon-mounted illuminators, and IR lasers during shooting stages and course navigation.</span></li>
+          <li><span class="num">12.3.2</span><span>White light is prohibited for NV competitors during the NV event nights, except for admin, safety reason, medical emergencies, or when directed by an RO.</span></li>
+          <li><span class="num">12.3.3</span><span>Non-NV personnel (ROs, staff) at NV-night stages shall use red-filtered lights or dim white light to preserve competitor night adaptation. Flashlights used for scoring/admin shall be red-filtered or directed away from competitors.</span></li>
+          <li>
+            <span class="num">12.3.4</span>
+            <span>
+              NV Lighting Violation Enforcement:
+              <ul class="rule-sublist">
+                <li><span class="num">&mdash;</span><span>First offense: Verbal warning issued by the RO.</span></li>
+                <li><span class="num">&mdash;</span><span>Second offense: The competitor is administratively moved from the NV division to the corresponding white-light division (NV 2Gun &rarr; 2Gun; NV PCC &rarr; PCC). Their scores are transferred and scored under white-light division rules for remaining stages.</span></li>
+              </ul>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 13 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s13">
+      <div class="section-header">
+        <span class="section-num">Section 13</span>
+        <h2 class="section-title">Medical and Emergency Procedures</h2>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">13.1</span>Medical Emergency</div>
+        <ul class="rule-list">
+          <li><span class="num">13.1.1</span><span>If any competitor or official requires medical assistance, any person on the course may call &ldquo;CEASE FIRE&rdquo; loudly and repeatedly. All shooting shall halt immediately.</span></li>
+          <li><span class="num">13.1.2</span><span>ROs at stage shall acknowledge with a &ldquo;STAGE CLEAR&rdquo; call or radio confirmation before competitors resume.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">13.2</span>Lost Competitor Protocol</div>
+        <ul class="rule-list">
+          <li><span class="num">13.2.1</span><span>Competitors who fail to finish within 2 hours shall be flagged by the scoring station.</span></li>
+          <li><span class="num">13.2.2</span><span>A designated RO or MD shall initiate contact (radio, phone, or physical check) for any competitor exceeding the maximum time.</span></li>
+        </ul>
+      </div>
+
+      <div class="sub">
+        <div class="sub-title"><span class="sub-num">13.3</span>Weather and Course Abort</div>
+        <ul class="rule-list">
+          <li><span class="num">13.3.1</span><span>The MD has sole authority to suspend or abort the event for safety reasons including severe weather, lightning, or course hazard.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- SECTION 14 -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <section class="rule-section" id="s14">
+      <div class="section-header">
+        <span class="section-num">Section 14</span>
+        <h2 class="section-title">Refund Policy</h2>
+      </div>
+
+      <table class="penalty-table">
+        <thead>
+          <tr>
+            <th>Window</th>
+            <th>Refund</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>14.1</strong> &nbsp; Until 60 days before the event</td>
+            <td>Full refund, minus fees</td>
+          </tr>
+          <tr>
+            <td><strong>14.2</strong> &nbsp; Until 30 days before the event</td>
+            <td>Half refund, minus fees</td>
+          </tr>
+          <tr>
+            <td><strong>14.3</strong> &nbsp; Within 30 days of the event</td>
+            <td class="penalty-dq">No refund</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <span class="footer__brand">TWILIGHT BIATHLON</span>
+    <span>&copy; 2026 Oklahoma Multi-Gun</span>
+    <a href="mailto:OkMultiGun@gmail.com">OkMultiGun@gmail.com</a>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
