@@ -20,7 +20,9 @@
       "payment_note": "PayPal \u2014 details sent by email after PractiScore registration. Check spam if payment email doesn't arrive. Registration is NOT complete until PayPal payment received.",
       "reg_url": "https://practiscore.com/twilight-biathlon-may-15-16-2026/register",
       "reg_status": "open",
-      "show_on_home": true
+      "show_on_home": true,
+      "includes": "Twilight Biathlon t-shirt for every registered competitor",
+      "awards": "Top 3 in each division. Ceremony held Saturday night after all scoring is complete."
     },
     {
       "id": "fall-2026",
@@ -42,7 +44,9 @@
       "payment_note": "PayPal \u2014 details sent by email after PractiScore registration. Check spam if payment email doesn't arrive. Registration is NOT complete until PayPal payment received.",
       "reg_url": "https://practiscore.com/twilight-biathlon-october-16-17-2026/register",
       "reg_status": "open",
-      "show_on_home": true
+      "show_on_home": true,
+      "includes": "Twilight Biathlon t-shirt for every registered competitor",
+      "awards": "Top 3 in each division. Ceremony held Saturday night after all scoring is complete."
     }
   ],
   "results": [
